@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "curso")
-public class Curso {
+@Table(name = "unidade_curricular")
+public class UnidadeCurricular {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,9 @@ public class Curso {
 
 	@Column(name = "nome", length = 150, nullable = false)
 	private String nome;
+	
+	@Column(name = "numero", length = 20, nullable = false)
+	private String numero;
 
 	public Long getId() {
 		return id;
@@ -34,7 +37,13 @@ public class Curso {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 	
 }

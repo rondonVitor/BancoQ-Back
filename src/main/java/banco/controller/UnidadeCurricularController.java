@@ -13,32 +13,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import banco.domain.Curso;
-import banco.service.CursoService;
+import banco.domain.UnidadeCurricular;
+import banco.service.UnidadeCurricularService;
 
 @RestController
-@RequestMapping("/banco/curso")
-public class CursoController {
+@RequestMapping("/banco/uc")
+public class UnidadeCurricularController {
 
 	@Autowired
-	private CursoService cursoService;
+	private UnidadeCurricularService ucService;
 	
 	@PostMapping("/salvar")
-	public ResponseEntity<?> salvar(@RequestBody @Valid Curso curso, BindingResult result) {
-		Curso cursoSalvo = this.cursoService.salvar(curso);
-		return new ResponseEntity<Curso>(cursoSalvo, HttpStatus.CREATED);
+	public ResponseEntity<?> salvar(@RequestBody @Valid UnidadeCurricular uc, BindingResult result) {
+		UnidadeCurricular ucSalvo = this.ucService.salvar(uc);
+		return new ResponseEntity<UnidadeCurricular>(ucSalvo, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/listar-todos")
 	public ResponseEntity<?> listarTodos() {
-		Iterable<Curso> cursos = this.cursoService.listarTodos();
-		return new ResponseEntity<Iterable<Curso>>(cursos, HttpStatus.OK);
+		Iterable<UnidadeCurricular> uc = this.ucService.listarTodos();
+		return new ResponseEntity<Iterable<UnidadeCurricular>>(uc, HttpStatus.OK);
 	}
 	
 	@GetMapping("/buscar-id/{idCurso}")
 	public ResponseEntity<?> buscarCursoPorMatricula(@PathVariable("id") Long id) {
-		Curso curso = this.cursoService.buscarPorId(id);
-		return new ResponseEntity<Curso>(curso, HttpStatus.OK);
+		UnidadeCurricular uc = this.ucService.buscarPorId(id);
+		return new ResponseEntity<UnidadeCurricular>(uc, HttpStatus.OK);
 	}
 	
 }
