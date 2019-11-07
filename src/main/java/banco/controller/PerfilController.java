@@ -35,8 +35,8 @@ public class PerfilController {
 		return new ResponseEntity<Iterable<Perfil>>(perfil, HttpStatus.OK);
 	}
 	
-	@GetMapping("/buscar-id/{idCurso}")
-	public ResponseEntity<?> buscarCursoPorMatricula(@PathVariable("id") Long id) {
+	@GetMapping("/buscar-por-id/{id}")
+	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 		Perfil perfil = this.perfilService.buscarPorId(id);
 		return new ResponseEntity<Perfil>(perfil, HttpStatus.OK);
 	}

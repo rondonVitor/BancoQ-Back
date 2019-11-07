@@ -35,8 +35,8 @@ public class CursoController {
 		return new ResponseEntity<Iterable<Curso>>(cursos, HttpStatus.OK);
 	}
 	
-	@GetMapping("/buscar-id/{idCurso}")
-	public ResponseEntity<?> buscarCursoPorMatricula(@PathVariable("id") Long id) {
+	@GetMapping("/buscar-por-id/{id}")
+	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 		Curso curso = this.cursoService.buscarPorId(id);
 		return new ResponseEntity<Curso>(curso, HttpStatus.OK);
 	}

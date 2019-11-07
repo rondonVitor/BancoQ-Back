@@ -35,8 +35,8 @@ public class UnidadeCurricularController {
 		return new ResponseEntity<Iterable<UnidadeCurricular>>(uc, HttpStatus.OK);
 	}
 	
-	@GetMapping("/buscar-id/{idCurso}")
-	public ResponseEntity<?> buscarCursoPorMatricula(@PathVariable("id") Long id) {
+	@GetMapping("/buscar-por-id/{id}")
+	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 		UnidadeCurricular uc = this.ucService.buscarPorId(id);
 		return new ResponseEntity<UnidadeCurricular>(uc, HttpStatus.OK);
 	}
