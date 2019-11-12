@@ -13,8 +13,8 @@ public class UnidadeCurricular {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "iduc")
+	private Long idUc;
 
 	@Column(name = "nome", length = 150, nullable = false)
 	private String nome;
@@ -23,11 +23,11 @@ public class UnidadeCurricular {
 	private String numero;
 
 	public Long getId() {
-		return id;
+		return idUc;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.idUc = id;
 	}
 
 	public String getNome() {

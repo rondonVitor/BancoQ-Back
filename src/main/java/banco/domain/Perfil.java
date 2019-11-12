@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "perfil")
@@ -13,9 +16,9 @@ public class Perfil {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
-
+	@Column(name = "idperfil")
+	private Long idPerfil;
+	
 	@Column(name = "nome", length = 150, nullable = false)
 	private String nome;
 	
@@ -28,12 +31,16 @@ public class Perfil {
 	@Column(name = "cargo", length = 150, nullable = false)
 	private String cargo;
 
+	@OneToOne(mappedBy = "perfil")
+	@JsonIgnore
+	private Usuario usuario;
+	
 	public Long getId() {
-		return id;
+		return idPerfil;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.idPerfil = id;
 	}
 
 	public String getNome() {

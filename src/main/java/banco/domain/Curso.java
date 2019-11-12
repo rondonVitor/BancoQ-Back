@@ -13,18 +13,18 @@ public class Curso {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "idcurso")
+	private Long idCurso;
 
 	@Column(name = "nome", length = 150, nullable = false)
 	private String nome;
 
 	public Long getId() {
-		return id;
+		return idCurso;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.idCurso = id;
 	}
 
 	public String getNome() {
