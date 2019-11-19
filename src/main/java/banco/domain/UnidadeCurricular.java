@@ -1,11 +1,16 @@
 package banco.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "unidade_curricular")
@@ -22,6 +27,10 @@ public class UnidadeCurricular {
 	@Column(name = "numero", length = 20, nullable = false)
 	private String numero;
 
+	@OneToMany(mappedBy = "unidadeCurricular", targetEntity = Questao.class)
+	@JsonIgnore
+	private List<Questao> questoes;
+	
 	public Long getId() {
 		return idUc;
 	}
@@ -45,5 +54,23 @@ public class UnidadeCurricular {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public Long getIdUc() {
+		return idUc;
+	}
+
+	public void setIdUc(Long idUc) {
+		this.idUc = idUc;
+	}
+
+	public List<Questao> getQuestoes() {
+		return questoes;
+	}
+
+	public void setQuestoes(List<Questao> questoes) {
+		this.questoes = questoes;
+	}
+	
+	
 	
 }
