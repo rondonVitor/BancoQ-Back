@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import banco.domain.Dificuldade;
 import banco.domain.Questao;
 import banco.domain.UnidadeCurricular;
 import banco.domain.Usuario;
@@ -22,6 +23,9 @@ public class QuestaoService {
 	
 	@Autowired
 	private UnidadeCurricularService ucService;
+	
+	@Autowired
+	private DificuldadeService dificuldadeService;
 	
 	public Questao salvar(QuestaoWs questaoWs) {
 		Questao questao = this.parseQuestaoWsToQuestao(questaoWs);
@@ -54,9 +58,15 @@ public class QuestaoService {
 		return uc;
 	}
 	
+	private Dificuldade obterDificuldade(Long idDificuldade) {
+		Dificuldade dificuldade = this.dificuldadeService.buscarPorId(idDificuldade);
+		return dificuldade;
+	}
+	
 	private Questao parseQuestaoWsToQuestao(QuestaoWs questaoWs) {
 		Usuario usuario = this.obterUsuario(questaoWs.getIdUsuario());
 		UnidadeCurricular uc = this.obterUc(questaoWs.getIdUc());
+		Dificuldade dificuldade = this.obterDificuldade(questaoWs.getIdDificuldade());
 		Questao questao = new Questao();
 		questao.setIdQuestao(questaoWs.getIdQuestao());
 		questao.setEnunciado(questaoWs.getEnunciado());
@@ -65,6 +75,7 @@ public class QuestaoService {
 		questao.setAtivo(questaoWs.getAtivo());
 		questao.setUsuario(usuario);
 		questao.setUnidadeCurricular(uc);
+		questao.setDificuldade(dificuldade);
 		return questao;
 	}
 	

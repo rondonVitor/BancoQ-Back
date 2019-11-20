@@ -18,10 +18,10 @@ public class Reclamacao {
 	@Column(name = "idreclamacao")
 	private Long idReclamacao;
 	
-	@Column(name = "reclamacao", length = 150, nullable = false, columnDefinition="text")
+	@Column(name = "reclamacao", nullable = false, columnDefinition="text")
 	private String reclamacao;
 	
-	@Column(name = "ativo", length = 2, nullable = false)
+	@Column(name = "ativo", length = 1, nullable = false)
 	private int ativo;
 
 	@ManyToOne(optional = true)

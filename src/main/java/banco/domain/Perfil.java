@@ -22,7 +22,7 @@ public class Perfil {
 	@Column(name = "nome", length = 150, nullable = false)
 	private String nome;
 	
-	@Column(name = "matricula", length = 150)
+	@Column(name = "matricula", length = 60)
 	private String matricula;
 	
 	@Column(name = "afiliacao", length = 150)

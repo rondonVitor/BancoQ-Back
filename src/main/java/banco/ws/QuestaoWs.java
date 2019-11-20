@@ -19,6 +19,9 @@ public class QuestaoWs {
 
 	@NotNull(message = "É obrigatório informar a unidade curricular!")
 	private Long idUc;
+	
+	@NotNull(message = "É obrigatório informar a dificuldade!")
+	private Long idDificuldade;
 
 	public Long getIdQuestao() {
 		return idQuestao;
@@ -75,6 +78,13 @@ public class QuestaoWs {
 	public void setIdUc(Long idUc) {
 		this.idUc = idUc;
 	}
-	
+
+	public Long getIdDificuldade() {
+		return idDificuldade;
+	}
+
+	public void setIdDificuldade(Long idDificuldade) {
+		this.idDificuldade = idDificuldade;
+	}
 
 }

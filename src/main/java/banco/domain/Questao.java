@@ -32,7 +32,7 @@ public class Questao {
 	@Column(name = "suporte", length = 150, nullable = false)
 	private String suporte;
 	
-	@Column(name = "ativo", length = 2, nullable = false)
+	@Column(name = "ativo", length = 1, nullable = false)
 	private int ativo;
 
 	@ManyToOne(optional = true)
@@ -42,6 +42,10 @@ public class Questao {
 	@ManyToOne(optional = true)
 	@JoinColumn(name = "iduc")
 	private UnidadeCurricular unidadeCurricular;
+	
+	@ManyToOne(optional = true)
+	@JoinColumn(name = "iddificuldade")
+	private Dificuldade dificuldade;
 	
 	@OneToMany(mappedBy = "questao", targetEntity = Alternativa.class)
 	@JsonIgnore
@@ -105,6 +109,22 @@ public class Questao {
 
 	public void setUnidadeCurricular(UnidadeCurricular unidadeCurricular) {
 		this.unidadeCurricular = unidadeCurricular;
+	}
+
+	public Dificuldade getDificuldade() {
+		return dificuldade;
+	}
+
+	public void setDificuldade(Dificuldade dificuldade) {
+		this.dificuldade = dificuldade;
+	}
+
+	public List<Reclamacao> getReclamacoes() {
+		return reclamacoes;
+	}
+
+	public void setReclamacoes(List<Reclamacao> reclamacoes) {
+		this.reclamacoes = reclamacoes;
 	}
 
 	public List<Alternativa> getAlternativas() {

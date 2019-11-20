@@ -18,7 +18,7 @@ public class Alternativa {
 	@Column(name = "idalternativa")
 	private Long idAlternativa;
 	
-	@Column(name = "correta", length = 2, nullable = false)
+	@Column(name = "correta", length = 1, nullable = false)
 	private int correta;
 	
 	@Column(name = "alternativa", length = 300, nullable = false)
