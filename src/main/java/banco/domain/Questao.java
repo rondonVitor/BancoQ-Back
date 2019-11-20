@@ -1,5 +1,7 @@
 package banco.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "questao")
@@ -37,6 +42,10 @@ public class Questao {
 	@ManyToOne(optional = true)
 	@JoinColumn(name = "iduc")
 	private UnidadeCurricular unidadeCurricular;
+	
+	@OneToMany(mappedBy = "questao", targetEntity = Alternativa.class)
+	@JsonIgnore
+	private List<Alternativa> alternativas;
 
 	public Long getIdQuestao() {
 		return idQuestao;
@@ -92,6 +101,14 @@ public class Questao {
 
 	public void setUnidadeCurricular(UnidadeCurricular unidadeCurricular) {
 		this.unidadeCurricular = unidadeCurricular;
+	}
+
+	public List<Alternativa> getAlternativas() {
+		return alternativas;
+	}
+
+	public void setAlternativas(List<Alternativa> alternativas) {
+		this.alternativas = alternativas;
 	}
 	
 }
