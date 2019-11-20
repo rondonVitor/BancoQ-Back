@@ -46,6 +46,10 @@ public class Questao {
 	@OneToMany(mappedBy = "questao", targetEntity = Alternativa.class)
 	@JsonIgnore
 	private List<Alternativa> alternativas;
+	
+	@OneToMany(mappedBy = "questao", targetEntity = Reclamacao.class)
+	@JsonIgnore
+	private List<Reclamacao> reclamacoes;
 
 	public Long getIdQuestao() {
 		return idQuestao;
