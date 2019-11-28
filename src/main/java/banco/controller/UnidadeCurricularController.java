@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import banco.domain.UnidadeCurricular;
 import banco.service.UnidadeCurricularService;
+import banco.ws.UnidadeCurricularWs;
 
 @RestController
 @RequestMapping("/banco/uc")
@@ -24,8 +25,8 @@ public class UnidadeCurricularController {
 	private UnidadeCurricularService ucService;
 	
 	@PostMapping("/salvar")
-	public ResponseEntity<?> salvar(@RequestBody @Valid UnidadeCurricular uc, BindingResult result) {
-		UnidadeCurricular ucSalvo = this.ucService.salvar(uc);
+	public ResponseEntity<?> salvar(@RequestBody @Valid UnidadeCurricularWs ucWs, BindingResult result) {
+		UnidadeCurricular ucSalvo = this.ucService.salvar(ucWs);
 		return new ResponseEntity<UnidadeCurricular>(ucSalvo, HttpStatus.CREATED);
 	}
 	
