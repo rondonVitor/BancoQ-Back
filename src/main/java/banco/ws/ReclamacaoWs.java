@@ -6,8 +6,10 @@ public class ReclamacaoWs {
 
 	private Long idReclamacao;
 
+	@NotNull(message = "É obrigatório informar a reclamação!")
 	private String reclamacao;
 	
+	@NotNull(message = "É obrigatório informar o campo ativo!")
 	private int ativo;
 
 	@NotNull(message = "É obrigatório informar o usuario!")

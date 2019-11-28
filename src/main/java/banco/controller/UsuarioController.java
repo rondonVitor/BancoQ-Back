@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import banco.domain.Usuario;
 import banco.service.UsuarioService;
+import banco.ws.UsuarioWs;
 
 @RestController
 @RequestMapping("/banco/usuario")
@@ -24,8 +25,8 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	
 	@PostMapping("/salvar")
-	public ResponseEntity<?> salvar(@RequestBody @Valid Usuario usuario, BindingResult result) {
-		Usuario usuarioSalvo = this.usuarioService.salvar(usuario);
+	public ResponseEntity<?> salvar(@RequestBody @Valid UsuarioWs usuarioWs, BindingResult result) {
+		Usuario usuarioSalvo = this.usuarioService.salvar(usuarioWs);
 		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.CREATED);
 	}
 	

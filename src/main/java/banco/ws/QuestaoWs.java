@@ -1,17 +1,22 @@
 package banco.ws;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class QuestaoWs {
 	
 	private Long idQuestao;
 	
+	@NotNull(message = "É obrigatório informar o enunciado!")
 	private String enunciado;
 
+	@NotNull(message = "É obrigatório informar o comando!")
 	private String comando;
 
+	@NotNull(message = "É obrigatório informar o suporte!")
 	private String suporte;
 
+	@NotEmpty(message = "É obrigatório informar o campo ativo!")
 	private int ativo;
 
 	@NotNull(message = "É obrigatório informar o usuário!")

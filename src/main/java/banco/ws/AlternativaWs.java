@@ -6,8 +6,10 @@ public class AlternativaWs {
 	
 	private Long idAlternativa;
 	
+	@NotNull(message = "É obrigatório informar a alternativa correta!")
 	private int correta;
 	
+	@NotNull(message = "É obrigatório informar a alternativa!")
 	private String alternativa;
 	
 	@NotNull(message = "É obrigatório informar a questão!")
