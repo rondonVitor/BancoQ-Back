@@ -15,14 +15,14 @@ public class TipoPermissao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idpermissao")
+	@Column(name = "idtipopermissao")
 	private Long idTipoPermissao;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "idtipo")
 	private Tipo tipo;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "idpermissao")
 	private Permissao permissao;
 

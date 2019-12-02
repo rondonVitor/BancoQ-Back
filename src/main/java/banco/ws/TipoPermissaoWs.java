@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class TipoPermissaoWs {
 
-	@NotNull(message = "É obrigatório informar o tipo!")
+	@NotNull(message = "É obrigatório informar o id!")
 	private Long idTipoPermissao;
 	
 	@NotNull(message = "É obrigatório informar o tipo!")
